@@ -1,0 +1,14 @@
+#root .vatany{
+  width: 100%;
+  background-color:#D2D0CF;
+}
+ .vatany .va{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+
+}
+.left{
+  width: 30%;
+  background-color: #CECFC2;
+}

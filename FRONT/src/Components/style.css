@@ -1,0 +1,395 @@
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Times New Roman', Times, serif;
+}
+li:hover{
+  background-color: whitesmoke;
+  border-radius: 5px;
+}
+li{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.connecter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-right: 10%;
+  gap: 10%;
+}
+.connecter .ka {
+  margin-top: 7%;
+  width: 95%;
+}
+.connecter .con{
+  gap: 10px;
+  width: 95%;
+}
+.connecter .inscri{
+  width: 95%;
+  gap: 10px;
+}
+
+.connecter input {
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 10px;
+  width: 100%;
+  font-weight: bold;
+  border:none;
+  border-bottom: 2px solid #d2d0cf;
+  font-size: 15px;
+  background-color: #003748;
+  border-radius: 5px;
+  color:whitesmoke;
+}
+.connecter .b{
+  display: flex;
+  flex-direction: row;
+  width: 67%;
+  margin-left: 60px;
+  gap: 10px;
+}
+.connecter .ka{
+  margin-top: 1%;
+  background-color: #003645;
+  border-radius: 10px;
+  box-shadow: 0 0 50px whitesmoke;
+}
+.connecter button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #003748;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  color: whitesmoke;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.connecter button:hover {
+  background-color: #1d2125;
+}
+.connecter .soratra:hover{
+  transition-duration: 3s, 1s;
+  transition-property: margin-right, color;
+}
+
+ .login{
+  margin: 20px;
+  display: flex;
+}
+ .login button:hover{
+  background-color: rgb(44, 49, 49);
+}
+ .laza{
+    display: flex;
+    flex-direction: row;
+    border: 2px solid whitesmoke;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    height: 56px;
+    padding-left: 200px;
+    width: 1365px
+    
+}
+    .laza button :hover{
+      background-color: rgb(24, 24, 109);
+    }
+.lo{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .la {
+    position: relative;
+  }
+  .lo a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #000;
+    font-size: 25px;
+  }
+  .l {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color:rgb(106, 157, 233);
+    border-radius: 10px;
+    width: 150px;
+    height: 150px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  .la:hover .l {
+    display: block;
+  }
+  .l a {
+    padding: 10px ;
+    text-decoration: none;
+    color: rgb(59, 79, 167);
+    display: block;
+    font-size: 20px;
+  }
+  
+  .l a:hover {
+    color: #ddd;
+  }
+  .bttt button{
+    border: rgb(126, 145, 145);
+
+  }
+  .ic{
+    border: none;
+    outline: none;
+    font-size: 40px;
+    background-color: rgb(126, 145, 145);
+  
+  }
+  .search {
+  display: flex;
+  align-items: center;
+  border: 1px solid whitesmoke; 
+  border-radius: 4px; 
+  padding: 5px;
+  width: 300px;
+}
+
+.searchicon {
+  margin-right: 10px; 
+  color:black;
+}
+
+.input {
+  border: none; 
+  outline: none;
+  width: 600px;
+  height: 30px; 
+  border-radius: 4px;
+  
+}
+.Vatany {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 65%;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+.tab{
+  display: flex;
+  flex-direction: column;
+  box-shadow: 3px solid saddlebrown;
+  width: 100%;
+
+}
+
+.icon-bar {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  justify-content: center;
+  padding: 3px;
+  border: 2px solid whitesmoke;
+}
+
+.icon-bar .fa-icon {
+  cursor: pointer;
+  color: #000;
+}
+
+.icon-bar .active {
+  color: #007BFF;
+}
+
+.editeur {
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  height: 300px;
+  font-family: monospace;
+  background-color: #000000;
+  font-size: 16px;
+  color: whitesmoke;
+  border: 1px solid #9a7676;
+  border-radius: 4px;
+}
+
+iframe {
+  width: 100%;
+  height: 300px;
+  border: 1px solid #ccc;
+}
+
+.connecter  .inscri  .alahatra {
+  display: flex;
+  align-items: center;
+  border-radius: 4px; 
+  padding: 5px;
+  width: 95%;
+}
+.connecter  .con  .alahatra {
+  display: flex;
+  align-items: center; 
+  border-radius: 4px; 
+  padding: 5px;
+ 
+}
+
+.icone { 
+  color:#545c61;
+}
+.con h2 {
+  color: #007bff;
+  font-size: 20px;
+  margin-left: 117px;
+}
+.inscri h2{
+  color: #007bff;
+  font-size: 20px;
+  margin-left: 88px;
+}
+.hi h2{
+  color: rgb(57, 57, 179);
+  margin-left: 58px;
+  font-size: 30px;
+}
+.coucou{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-left: 10px;
+}
+.coucou h3{
+  color: rgb(13, 52, 88);
+  font-size: medium;
+  font-size: 25px;
+}
+.html{
+  margin-left: 15px;
+}
+.html a{
+  color:rgb(73, 61, 61) ;
+  font-size: small;
+  font-size: 20px;
+}
+.html a .c{
+  color: blue;
+}
+.css{
+  margin-left: 15px;
+}
+.css a{
+  color:rgb(73, 61, 61) ;
+  font-size: small;
+  font-size: 20px;
+}
+.css a .icooo{
+  color: #000;
+}
+.js {
+  margin-left: 15px;
+}
+.js a{
+  color:rgb(73, 61, 61) ;
+  font-size: small;
+  font-size: 20px;
+}
+.js a .conn{
+  color: black;
+}
+.connecter .a{
+  color: #000;
+  margin-left: 23%;
+}
+.ab{
+  height: 100vh;
+  background-color: whitesmoke;
+}
+.izy{
+  background-color: whitesmoke;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+.izy .text {
+  display: flex;
+  flex-direction: row;
+  gap: 1%;
+}
+.izy .text #aza{
+ flex-direction: column;
+  gap: 10px;
+}
+.izy .text  #tete{
+  width: 100%;
+  height: 258px;
+  background-color: #545c61;
+}
+.izy .text #aza input{
+  width: 100%;
+  height: 40px;
+  font-size: 30px;
+}
+.izy .text #expication{
+ width: 70%;
+ background-color: wheat;
+ font-size: xx-large;
+ color: #000;
+}
+.izy .codeo{
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  justify-content: center;
+
+
+}
+.izy .codeo textarea{
+  width: 30%;
+  background-color: #003645;
+}
+.aj{
+  width: 10%;
+  height: 50px;
+  background-color: #003748;
+  border-radius: 10px;
+
+}
+.hi{
+  width: 35%;
+}
+
+/*
+app.post('/Login', (req, res) => {
+  const { email, pwd } = req.body;
+  const sql = 'SELECT * FROM laz WHERE email = ? AND pwd = ?';
+  db.query(sql, [email, pwd], (err, result) => {
+    if (err) return res.status(500).json({ message: 'Error executing query' });
+    if (result.length > 0) {
+      return res.json({ message: 'Login successful', user: result[0] });
+    } else {
+      
+      const insertSql = 'INSERT INTO laz (name, email, pwd) VALUES (?, ?, ?)';
+      db.query(insertSql, ['default_name', email, pwd], (insertErr, insertResult) => {
+        if (insertErr) return res.status(500).json({ message: 'Error inserting user', error: insertErr });
+        return res.json({ message: 'User registered automatically', result: insertResult });
+      });
+    }
+  });
+});
+*/
