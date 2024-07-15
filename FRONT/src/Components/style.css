@@ -6,7 +6,6 @@
   font-family: 'Times New Roman', Times, serif;
 }
 li:hover{
-  background-color: whitesmoke;
   border-radius: 5px;
 }
 li{
@@ -88,13 +87,17 @@ li{
  .laza{
     display: flex;
     flex-direction: row;
-    border: 2px solid whitesmoke;
     justify-content: center;
     align-items: center;
     gap: 100px;
     height: 56px;
     padding-left: 200px;
-    width: 1365px
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: whitesmoke;
+    z-index: 1000;
+    box-shadow:  0 4px 8px rgba(0, 0, 0, 0.1);
     
 }
     .laza button :hover{
@@ -181,10 +184,22 @@ li{
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 65%;
-  height: 100vh;
   font-family: Arial, sans-serif;
+  margin-left: 20%;
+  padding: 5px;
+  overflow-x: auto;
 }
+.pub{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.flow{
+  width: 100%;
+  word-break: break-all;
+
+}
+
 .tab{
   display: flex;
   flex-direction: column;
@@ -219,9 +234,9 @@ li{
 textarea {
   height: 300px;
   font-family: monospace;
-  background-color: #000000;
+  background-color:rgb(132, 146, 150);
   font-size: 16px;
-  color: whitesmoke;
+  color:  #0f2f46;
   border: 1px solid #9a7676;
   border-radius: 4px;
 }
@@ -323,8 +338,8 @@ iframe {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 10px;
-  margin-left: 15px;
+  margin-top: 57px;
+  margin-left: 2px;
 }
 .izy .text {
   display: flex;
@@ -362,34 +377,61 @@ iframe {
 .izy .codeo textarea{
   width: 30%;
   background-color: #003645;
+  color: whitesmoke;
 }
 .aj{
   width: 10%;
   height: 50px;
   background-color: #003748;
   border-radius: 10px;
+  font-size: 25px;
 
 }
 .hi{
-  width: 35%;
+  position: fixed;
+  top: 60px;
+  height: calc(100% - 60px);
+  overflow-y:auto;
+  width: 20%;
+  z-index: 999;
+}
+.x{
+  width: 100%;
+}
+.data-list{
+  border: 2px solid rgb(29, 20, 20);
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+
+}
+.données{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid blueviolet;
+  margin-bottom: 15px;
+}
+.style{
+  display: flex;
+  flex-direction:row;
+  gap: 20px;
+  justify-content: center;
+}
+thead{
+  background-color: rgb(228 240 245);
 }
 
-/*
-app.post('/Login', (req, res) => {
-  const { email, pwd } = req.body;
-  const sql = 'SELECT * FROM laz WHERE email = ? AND pwd = ?';
-  db.query(sql, [email, pwd], (err, result) => {
-    if (err) return res.status(500).json({ message: 'Error executing query' });
-    if (result.length > 0) {
-      return res.json({ message: 'Login successful', user: result[0] });
-    } else {
-      
-      const insertSql = 'INSERT INTO laz (name, email, pwd) VALUES (?, ?, ?)';
-      db.query(insertSql, ['default_name', email, pwd], (insertErr, insertResult) => {
-        if (insertErr) return res.status(500).json({ message: 'Error inserting user', error: insertErr });
-        return res.json({ message: 'User registered automatically', result: insertResult });
-      });
-    }
-  });
-});
-*/
+  th{
+  border: 1px solid rgb(160 160 160);
+  padding: 8px 10px;
+}
+.soratra{
+  width: 50%;
+}
+
+.animé {
+  font-size: 24px;
+  white-space: nowrap;
+  
+}

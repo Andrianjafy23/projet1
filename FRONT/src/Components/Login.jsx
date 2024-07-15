@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
-import { Link } from 'react-router-dom';
 import LoginIcon from '@mui/icons-material/Login';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,6 +14,21 @@ function Login() {
   });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [text, setText] = useState(' ');
+  const t = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi sequi rem sint accusantium minima molestias possimus inventore aspernatur quod alias molestiae officiis deserunt tempora nesciunt, fuga quae, veniam voluptate nulla."
+  
+  useEffect(() => {
+    let i = 0;
+    const n = setInterval(() => {
+      setText(t.slice(0, i + 1));
+      i++;
+      if (i >= t.length) {
+        clearInterval(n);
+      }
+    }, 50);
+
+    return ( ) => clearInterval(n);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -57,7 +71,7 @@ function Login() {
   return (
     <div style={backgroundImageStyle} className='connecter'>
       <div className='soratra'>
-        <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi sequi rem sint accusantium minima molestias possimus inventore aspernatur quod alias molestiae officiis deserunt tempora nesciunt, fuga quae, veniam voluptate nulla.</h2>
+        <h2 className='animé'>{text}</h2>
       </div>
       <div className='ka'>
         <div className='b'>

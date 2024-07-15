@@ -12,7 +12,7 @@ function Connecté() {
     js: ''
   });
 
-  const [data, setData] = useState([]); // État pour stocker les données récupérées
+  const [data, setData] = useState([]); // stocker les données 
 
   const handleChange = (e) => {
     setValues({
@@ -23,10 +23,10 @@ function Connecté() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:8082/code', values)
+    axios.post('http://localhost:8083/base', values)
       .then(response => {
         console.log('Data submitted successfully:', response.data);
-        // Réinitialiser les valeurs du formulaire après une soumission réussie
+        // Réinitialiser les valeurs du formulaire 
         setValues({
           titre: '',
           soutitre: '',
@@ -35,16 +35,16 @@ function Connecté() {
           css: '',
           js: ''
         });
-        fetchData(); // Rafraîchir les données après soumission
+        fetchData(); // Rafraîchir les données 
       })
       .catch(error => {
         console.error('There was an error submitting the data!', error);
       });
   };
 
-  // Fonction pour récupérer les données depuis le serveur
+  // Fonction pour récupérer les données 
   const fetchData = () => {
-    axios.get('http://localhost:8082/code')
+    axios.get('http://localhost:8083/base')
       .then(response => {
         setData(response.data);
       })
@@ -53,7 +53,6 @@ function Connecté() {
       });
   };
 
-  // Utiliser useEffect pour récupérer les données lorsque le composant est monté
   useEffect(() => {
     fetchData();
   }, []);
@@ -113,17 +112,24 @@ function Connecté() {
       </form>
 
       <div className="data-list">
-        <h2>Données récupérées</h2>
+       <center><h2>LISTES DES DONNÉES</h2></center> 
         <ul>
           {data.map((item, index) => (
-            <li key={index}>
-              <h3>{item.titre}</h3>
-              <p>{item.soutitre}</p>
-              <pre>{item.expliquer}</pre>
-              <pre>{item.html}</pre>
-              <pre>{item.css}</pre>
-              <pre>{item.js}</pre>
-            </li>
+              <thead>
+                <tr key={index} className='données'>
+                  <th scope="col">{item.titre}</th>
+                  <th scope="col">{item.soutitre}</th>
+                  <th scope="col">{item.expliquer}</th>
+                  <th scope="col">{item.html}</th>
+                  <th scope="col">{item.css}</th>
+                  <th scope="col">{item.js}</th>
+                </tr>
+                <div className='style'>
+                  <button >modifier</button>
+                  <button>supprimmer</button>
+                </div>
+              </thead>
+            
           ))}
         </ul>
       </div>

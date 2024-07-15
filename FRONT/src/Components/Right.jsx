@@ -24,19 +24,19 @@ function Right() {
         <h3 onClick={HTML}><VscChevronDown/>HTML</h3>
         {showHTML && (
           <ul className='html'>
-            <li><a href="#"><VscDebugBreakpointData className='c'/>Introduction </a></li>
-            <li><a href="#"><VscDebugBreakpointData className='c'/>Structure de base</a></li>
-            <li><a href="#"><VscDebugBreakpointData className='c'/>Éléments de texte</a></li>
-            <li><a href="#"><VscDebugBreakpointData className='c'/>Liens et ancrages</a></li>
-            <li><a href="#"><VscDebugBreakpointData className='c'/>Images et médias</a></li>
-            <li><a href="#"><VscDebugBreakpointData className='c'/>Tableaux</a></li>
-            <li><a href="#"><VscDebugBreakpointData className='c'/>Formulaires</a></li>
-            <li><a href="#"><VscDebugBreakpointData className='c'/>Sémantique </a></li>
-            <li><a href="#"><VscDebugBreakpointData className='c'/>Métadonnées et SEO</a></li>
-            <li><a href="#"><VscDebugBreakpointData className='c'/>HTML avancé</a></li>
-            <li><a href="#"><VscDebugBreakpointData className='c'/>Bonnes pratiques et validation</a></li>
-            <li><a href="#"><VscDebugBreakpointData className='c'/>Intégration avec CSS et JavaScript</a></li>
-            <li><a href="#"><VscDebugBreakpointData className='c'/>Ressources supplémentaires</a></li>
+            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Introduction </a></li>
+            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Structure de base</a></li>
+            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Éléments de texte</a></li>
+            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Liens et ancrages</a></li>
+            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Images et médias</a></li>
+            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Tableaux</a></li>
+            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Formulaires</a></li>
+            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Sémantique </a></li>
+            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Métadonnées et SEO</a></li>
+            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>HTML avancé</a></li>
+            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Bonnes pratiques et validation</a></li>
+            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Intégration avec CSS et JavaScript</a></li>
+            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Ressources supplémentaires</a></li>
           </ul>
         )}
         <h3 onClick={CSS}><VscChevronDown/>CSS</h3>
