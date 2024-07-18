@@ -4,72 +4,80 @@ import { VscChevronDown } from "react-icons/vsc";
 import { VscDebugBreakpointLog } from "react-icons/vsc";
 import { VscDebugBreakpointLogUnverified } from "react-icons/vsc";
 import { VscDebugBreakpointData } from "react-icons/vsc";
-
+import { IoIosOptions } from "react-icons/io";
 
 function Right() {
-  
+  const [option, setOption] = useState(false);
   const [showHTML, setShowHTML] = useState(false);
   const [showCSS, setShowCSS] = useState(false);
   const [showJS, setShowJS] = useState(false);
 
-  
-  const HTML = () => setShowHTML(!showHTML);
-  const CSS = () => setShowCSS(!showCSS);
-  const JS = () => setShowJS(!showJS);
+  const toggleOption = () => setOption(!option);
+  const toggleHTML = () => setShowHTML(!showHTML);
+  const toggleCSS = () => setShowCSS(!showCSS);
+  const toggleJS = () => setShowJS(!showJS);
 
   return (
     <div className='hi'>
-      <h2>Option</h2>
-      <div className="coucou">
-        <h3 onClick={HTML}><VscChevronDown/>HTML</h3>
-        {showHTML && (
-          <ul className='html'>
-            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Introduction </a></li>
-            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Structure de base</a></li>
-            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Éléments de texte</a></li>
-            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Liens et ancrages</a></li>
-            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Images et médias</a></li>
-            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Tableaux</a></li>
-            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Formulaires</a></li>
-            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Sémantique </a></li>
-            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Métadonnées et SEO</a></li>
-            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>HTML avancé</a></li>
-            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Bonnes pratiques et validation</a></li>
-            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Intégration avec CSS et JavaScript</a></li>
-            <li className='x'><a href="#"><VscDebugBreakpointData className='c'/>Ressources supplémentaires</a></li>
-          </ul>
-        )}
-        <h3 onClick={CSS}><VscChevronDown/>CSS</h3>
-        {showCSS && (
-          <ul className='css'>
-            <li><a href="#"><VscDebugBreakpointLogUnverified className='icooo'/>Introduction </a></li>
-            <li><a href="#"><VscDebugBreakpointLogUnverified className='icooo'/>Syntaxe et Sélecteurs</a></li>
-            <li><a href="#"><VscDebugBreakpointLogUnverified className='icooo'/>Propriétés de Texte</a></li>
-            <li><a href="#"><VscDebugBreakpointLogUnverified className='icooo'/>Modèle de Boîte </a></li>
-            <li><a href="#"><VscDebugBreakpointLogUnverified className='icooo'/>Flexbox</a></li>
-            <li><a href="#"><VscDebugBreakpointLogUnverified className='icooo'/>Grid Layout</a></li>
-            <li><a href="#"><VscDebugBreakpointLogUnverified className='icooo'/>Couleurs et Fonds</a></li>
-            <li><a href="#"><VscDebugBreakpointLogUnverified className='icooo'/>Transitions et Animations</a></li>
-            <li><a href="#"><VscDebugBreakpointLogUnverified className='icooo'/>Responsive Design et Media Queries</a></li>
-            <li><a href="#"><VscDebugBreakpointLogUnverified className='icooo'/>Préprocesseurs CSS (Sass, Less)</a></li>
-          </ul>
-        )}
-        <h3 onClick={JS}><VscChevronDown/>JavaScript</h3>
-        {showJS && (
-          <ul className='js'>
-            <li><a href="#"><VscDebugBreakpointLog className='conn'/>Introduction au JavaScript</a></li>
-            <li><a href="#"><VscDebugBreakpointLog className='conn'/>Syntaxe de Base et Opérateurs</a></li>
-            <li><a href="#"><VscDebugBreakpointLog className='conn'/>Structures de Contrôle</a></li>
-            <li><a href="#"><VscDebugBreakpointLog className='conn'/>Fonctions</a></li>
-            <li><a href="#"><VscDebugBreakpointLog className='conn'/>Objets et Tableaux</a></li>
-            <li><a href="#"><VscDebugBreakpointLog className='conn'/>DOM (Document Object Model)</a></li>
-            <li><a href="#"><VscDebugBreakpointLog className='conn'/>Événements</a></li>
-            <li><a href="#"><VscDebugBreakpointLog className='conn'/>AJAX et Fetch API</a></li>
-            <li><a href="#"><VscDebugBreakpointLog className='conn'/>ES6+ et Modules JavaScript</a></li>
-            <li><a href="#"><VscDebugBreakpointLog className='conn'/>Asynchrone JavaScript (Promises, async/await)</a></li>
-          </ul>
-        )}
-      </div>
+      <IoIosOptions className='option' onClick={toggleOption} />
+      {option && (
+        <div className="coucou">
+          <h3 onClick={toggleHTML}>
+            <VscChevronDown /> HTML
+          </h3>
+          {showHTML && (
+            <ul className='html'>
+              <li className='x'><VscDebugBreakpointData className='c' />Introduction</li>
+              <li className='x'><VscDebugBreakpointData className='c' />Structure de base</li>
+              <li className='x'><VscDebugBreakpointData className='c' />Éléments de texte</li>
+              <li className='x'><VscDebugBreakpointData className='c' />Liens et ancrages</li>
+              <li className='x'><VscDebugBreakpointData className='c' />Images et médias</li>
+              <li className='x'><VscDebugBreakpointData className='c' />Tableaux</li>
+              <li className='x'><VscDebugBreakpointData className='c' />Formulaires</li>
+              <li className='x'><VscDebugBreakpointData className='c' />Sémantique</li>
+              <li className='x'><VscDebugBreakpointData className='c' />Métadonnées et SEO</li>
+              <li className='x'><VscDebugBreakpointData className='c' />HTML avancé</li>
+              <li className='x'><VscDebugBreakpointData className='c' />Bonnes pratiques et validation</li>
+              <li className='x'><VscDebugBreakpointData className='c' />Intégration avec CSS et JavaScript</li>
+              <li className='x'><VscDebugBreakpointData className='c' />Ressources supplémentaires</li>
+            </ul>
+          )}
+          <h3 onClick={toggleCSS}>
+            <VscChevronDown /> CSS
+          </h3>
+          {showCSS && (
+            <ul className='css'>
+              <li><VscDebugBreakpointLogUnverified className='icooo' />Introduction</li>
+              <li><VscDebugBreakpointLogUnverified className='icooo' />Syntaxe et Sélecteurs</li>
+              <li><VscDebugBreakpointLogUnverified className='icooo' />Propriétés de Texte</li>
+              <li><VscDebugBreakpointLogUnverified className='icooo' />Modèle de Boîte</li>
+              <li><VscDebugBreakpointLogUnverified className='icooo' />Flexbox</li>
+              <li><VscDebugBreakpointLogUnverified className='icooo' />Grid Layout</li>
+              <li><VscDebugBreakpointLogUnverified className='icooo' />Couleurs et Fonds</li>
+              <li><VscDebugBreakpointLogUnverified className='icooo' />Transitions et Animations</li>
+              <li><VscDebugBreakpointLogUnverified className='icooo' />Responsive Design et Media Queries</li>
+              <li><VscDebugBreakpointLogUnverified className='icooo' />Préprocesseurs CSS (Sass, Less)</li>
+            </ul>
+          )}
+          <h3 onClick={toggleJS}>
+            <VscChevronDown /> JavaScript
+          </h3>
+          {showJS && (
+            <ul className='js'>
+              <li><VscDebugBreakpointLog className='conn' />Introduction au JavaScript</li>
+              <li><VscDebugBreakpointLog className='conn' />Syntaxe de Base et Opérateurs</li>
+              <li><VscDebugBreakpointLog className='conn' />Structures de Contrôle</li>
+              <li><VscDebugBreakpointLog className='conn' />Fonctions</li>
+              <li><VscDebugBreakpointLog className='conn' />Objets et Tableaux</li>
+              <li><VscDebugBreakpointLog className='conn' />DOM (Document Object Model)</li>
+              <li><VscDebugBreakpointLog className='conn' />Événements</li>
+              <li><VscDebugBreakpointLog className='conn' />AJAX et Fetch API</li>
+              <li><VscDebugBreakpointLog className='conn' />ES6+ et Modules JavaScript</li>
+              <li><VscDebugBreakpointLog className='conn' />Asynchrone JavaScript (Promises, async/await)</li>
+            </ul>
+          )}
+        </div>
+      )}
     </div>
   );
 }

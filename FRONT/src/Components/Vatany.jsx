@@ -7,7 +7,7 @@ import { faHtml5, faCss3Alt, faJs } from '@fortawesome/free-brands-svg-icons';
 
 library.add(faHtml5, faCss3Alt, faJs);
 
-function Vatany() {
+function Vatany({ searchQuery }) {
   const [activeEditor, setActiveEditor] = useState('html');
   const [codeData, setCodeData] = useState([]);
 
@@ -35,14 +35,20 @@ function Vatany() {
     setCodeData(updatedCodeData);
   };
 
+  const filteredData = codeData.filter(item => 
+    item.titre.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    item.soutitre.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    item.expliquer.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="Vatany">
       <div className='tab'>
         <ul>
-          {codeData.map((item, index) => (
+          {filteredData.map((item, index) => (
             <li key={index} className='pub'>
-              <h3>{item.titre}</h3>
-              <p className='flow'>{item.soutitre}</p>
+              <center><h3>{item.titre}</h3></center>
+              <p className='flow1'>{item.soutitre}</p>
               <p className='flow'>{item.expliquer}</p>
               <div className="icon-bar">
                 <FontAwesomeIcon
@@ -90,6 +96,7 @@ function Vatany() {
                   />
                 )}
               </div>
+              <h2>Resultat:</h2>
               <iframe
                 key={index}
                 srcDoc={`

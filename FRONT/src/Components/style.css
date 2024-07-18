@@ -199,6 +199,10 @@ li{
   word-break: break-all;
 
 }
+.flow1{
+  width: 100%;
+  font-size: 20px;
+}
 
 .tab{
   display: flex;
@@ -211,7 +215,7 @@ li{
 .icon-bar {
   display: flex;
   flex-direction: row;
-  gap: 25px;
+  gap: 40px;
   justify-content: center;
   padding: 3px;
   border: 2px solid whitesmoke;
@@ -434,4 +438,12 @@ thead{
   font-size: 24px;
   white-space: nowrap;
   
+}
+h3{
+  font-size: 35px;
+  color:white;
+}
+.option{
+  font-size: 60px;
+  margin-left: 10px;
 }
