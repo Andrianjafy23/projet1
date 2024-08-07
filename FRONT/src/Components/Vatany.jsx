@@ -20,7 +20,7 @@ function Vatany({ searchQuery }) {
       const response = await axios.get('http://localhost:8083/base');
       setCodeData(response.data);
     } catch (error) {
-      console.error('There was an error fetching the code data!', error);
+      console.error('error!', error);
     }
   };
 

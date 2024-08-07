@@ -36,7 +36,7 @@ app.post('/laz', (req, res) => {
   const values = [name || 'default_name', email, pwd];
   db.query(sql, values, (err, result) => {
     if (err) return res.status(500).json({ message: 'Error inserting user', error: err });
-    return res.json({ message: 'User registered successfully', result });
+    return res.json({ message: 'Votre compte a été créé avec succès. Allez connecter', result });
   });
 });
 app.listen(8082, () => {

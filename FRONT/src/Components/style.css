@@ -53,6 +53,7 @@ li{
 }
 .connecter .ka{
   margin-top: 1%;
+  margin-left: 50%;
   background-color: #003645;
   border-radius: 10px;
   box-shadow: 0 0 50px whitesmoke;
@@ -89,13 +90,12 @@ li{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 100px;
+    gap: 300px;
     height: 56px;
-    padding-left: 200px;
     width: 100%;
     position: fixed;
     top: 0;
-    background-color: whitesmoke;
+    background-color: white;
     z-index: 1000;
     box-shadow:  0 4px 8px rgba(0, 0, 0, 0.1);
     
@@ -243,6 +243,8 @@ textarea {
   color:  #0f2f46;
   border: 1px solid #9a7676;
   border-radius: 4px;
+  padding-left: 43px;
+  padding-top: 43px;
 }
 
 iframe {
@@ -432,6 +434,7 @@ thead{
 }
 .soratra{
   width: 50%;
+  position: fixed;
 }
 
 .animé {
@@ -446,4 +449,12 @@ h3{
 .option{
   font-size: 60px;
   margin-left: 10px;
+}
+.btt{
+  height:40px;
+  width: 120px;
+  background-color: #007BFF;
+  font-size: 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }

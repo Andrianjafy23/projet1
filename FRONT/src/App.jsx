@@ -9,7 +9,6 @@ import Connecté from './Components/Connecté';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
-
   return (
     <div className='vatany'>
       <Logika searchQuery={searchQuery} setSearchQuery={setSearchQuery} />

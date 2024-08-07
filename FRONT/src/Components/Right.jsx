@@ -27,7 +27,7 @@ function Right() {
           </h3>
           {showHTML && (
             <ul className='html'>
-              <li className='x'><VscDebugBreakpointData className='c' />Introduction</li>
+              <a href=""><li className='x'><VscDebugBreakpointData className='c' />Introduction</li></a>
               <li className='x'><VscDebugBreakpointData className='c' />Structure de base</li>
               <li className='x'><VscDebugBreakpointData className='c' />Éléments de texte</li>
               <li className='x'><VscDebugBreakpointData className='c' />Liens et ancrages</li>

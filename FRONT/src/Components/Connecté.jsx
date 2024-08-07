@@ -12,7 +12,9 @@ function Connecté() {
     js: ''
   });
 
-  const [data, setData] = useState([]); // stocker les données 
+  const [data, setData] = useState([]);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editId, setEditId] = useState(null);
 
   const handleChange = (e) => {
     setValues({
@@ -23,26 +25,45 @@ function Connecté() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:8083/base', values)
-      .then(response => {
-        console.log('Data submitted successfully:', response.data);
-        // Réinitialiser les valeurs du formulaire 
-        setValues({
-          titre: '',
-          soutitre: '',
-          expliquer: '',
-          html: '',
-          css: '',
-          js: ''
+    if (isEditing) {
+      axios.put(`http://localhost:8083/base/${editId}`, values)
+        .then(response => {
+          console.log('Data updated successfully:', response.data);
+          setValues({
+            titre: '',
+            soutitre: '',
+            expliquer: '',
+            html: '',
+            css: '',
+            js: ''
+          });
+          setIsEditing(false);
+          setEditId(null);
+          fetchData();
+        })
+        .catch(error => {
+          console.error('There was an error updating the data!', error);
         });
-        fetchData(); // Rafraîchir les données 
-      })
-      .catch(error => {
-        console.error('There was an error submitting the data!', error);
-      });
+    } else {
+      axios.post('http://localhost:8083/base', values)
+        .then(response => {
+          console.log('Data submitted successfully:', response.data);
+          setValues({
+            titre: '',
+            soutitre: '',
+            expliquer: '',
+            html: '',
+            css: '',
+            js: ''
+          });
+          fetchData();
+        })
+        .catch(error => {
+          console.error('There was an error submitting the data!', error);
+        });
+    }
   };
 
-  // Fonction pour récupérer les données 
   const fetchData = () => {
     axios.get('http://localhost:8083/base')
       .then(response => {
@@ -56,6 +77,30 @@ function Connecté() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const handleEdit = (item) => {
+    setValues({
+      titre: item.titre,
+      soutitre: item.soutitre,
+      expliquer: item.expliquer,
+      html: item.html,
+      css: item.css,
+      js: item.js
+    });
+    setIsEditing(true);
+    setEditId(item.id);
+  };
+
+  const handleDelete = (id) => {
+    axios.delete(`http://localhost:8083/base/${id}`)
+      .then(response => {
+        console.log('Data deleted successfully:', response.data);
+        fetchData();
+      })
+      .catch(error => {
+        console.error('There was an error deleting the data!', error);
+      });
+  };
 
   return (
     <div className='izy'>
@@ -108,28 +153,27 @@ function Connecté() {
             onChange={handleChange}
           ></textarea>
         </div>
-        <center><button className='aj' type="submit">Ajouter</button></center>
+        <center><button className='aj' type="submit">{isEditing ? 'Modifier' : 'Ajouter'}</button></center>
       </form>
 
       <div className="data-list">
-       <center><h2>LISTES DES DONNÉES</h2></center> 
+        <center><h2>LISTES DES DONNÉES</h2></center>
         <ul>
           {data.map((item, index) => (
-              <thead>
-                <tr key={index} className='données'>
-                  <th scope="col">{item.titre}</th>
-                  <th scope="col">{item.soutitre}</th>
-                  <th scope="col">{item.expliquer}</th>
-                  <th scope="col">{item.html}</th>
-                  <th scope="col">{item.css}</th>
-                  <th scope="col">{item.js}</th>
-                </tr>
-                <div className='style'>
-                  <button >modifier</button>
-                  <button>supprimmer</button>
-                </div>
-              </thead>
-            
+            <tbody key={index}>
+              <tr className='données'>
+                <td>{item.titre}</td>
+                <td>{item.soutitre}</td>
+                <td>{item.expliquer}</td>
+                <td>{item.html}</td>
+                <td>{item.css}</td>
+                <td>{item.js}</td>
+              </tr>
+              <div className='style'>
+                <button className='btt' onClick={() => handleEdit(item)}>Modifier</button>
+                <button className='btt' onClick={() => handleDelete(item.id)}>Supprimer</button>
+              </div>
+            </tbody>
           ))}
         </ul>
       </div>

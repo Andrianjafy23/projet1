@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import './style.css';
+import code1 from '../assets/code1.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const zavtr = {
+  logo : code1,
   codeo: 'CODEO',
   pref: 'préference',
   js: 'javascript',
@@ -17,7 +19,11 @@ function Logika({ searchQuery, setSearchQuery }) {
     <div className="laza">
       <nav>
         <ul>
-          <li><Link to="/">APROPOS</Link></li>
+          <li>
+          <Link to="/">
+             <img src= {zavtr.logo} style={{width: '100px', height: '56px',}} alt="" />
+          </Link>
+          </li>
         </ul>
       </nav>
       <nav>

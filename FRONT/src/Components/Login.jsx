@@ -14,8 +14,8 @@ function Login() {
   });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-  const [text, setText] = useState(' ');
-  const t = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi sequi rem sint accusantium minima molestias possimus inventore aspernatur quod alias molestiae officiis deserunt tempora nesciunt, fuga quae, veniam voluptate nulla."
+  const [text, setText] = useState('');
+  const t = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur,  ."
   
   useEffect(() => {
     let i = 0;
@@ -23,11 +23,11 @@ function Login() {
       setText(t.slice(0, i + 1));
       i++;
       if (i >= t.length) {
-        clearInterval(n);
+        i = 0;
       }
-    }, 50);
+    }, 100);
 
-    return ( ) => clearInterval(n);
+    return () => clearInterval(n);
   }, []);
 
   const handleSubmit = (e) => {
@@ -54,7 +54,7 @@ function Login() {
     height: '100vh',
   };
 
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   const handleLoginClick = () => {
     setIsLogin(true);
@@ -75,8 +75,8 @@ function Login() {
       </div>
       <div className='ka'>
         <div className='b'>
-          <button onClick={handleLoginClick} className={isLogin ? 'active' : ''}><LoginIcon />Connexion</button>
           <button onClick={handleSignupClick} className={!isLogin ? 'active' : ''}><HowToRegIcon />Inscription</button>
+          <button onClick={handleLoginClick} className={isLogin ? 'active' : ''}><LoginIcon />Connexion</button>
         </div>
         {isLogin ? (
           <form className='con' onSubmit={handleSubmit}>
