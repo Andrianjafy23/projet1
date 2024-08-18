@@ -4,9 +4,7 @@
   "main": "Server.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start-laza": "nodemon Server.js",
-    "start-PROJET": "nodemon serv.js"
+    "start": "nodemon serv.js"
   },
   "keywords": [],
   "author": "",

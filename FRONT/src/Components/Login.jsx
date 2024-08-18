@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './style.css';
 import LoginIcon from '@mui/icons-material/Login';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
@@ -12,11 +13,20 @@ function Login() {
     email: '',
     pwd: ''
   });
+
+  const [p, setP] = useState(false);
+
+  const c = () => {
+    setP(!p);
+  };
+
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [text, setText] = useState('');
-  const t = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur,  ."
+  const navigate = useNavigate();
   
+  const t = "Apprenez et testez le web en toute simplicité.Développez vos \n compétences en HTML, CSS, et JavaScript sur une plateforme interactive et intuitive.";
+
   useEffect(() => {
     let i = 0;
     const n = setInterval(() => {
@@ -33,13 +43,19 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const url = isLogin ? 'http://localhost:8082/Login' : 'http://localhost:8082/laz';
+    const url = isLogin ? 'http://localhost:8084/login' : 'http://localhost:8084/laz';
     const payload = isLogin ? { email: values.email, pwd: values.pwd } : { name: values.name || 'default_name', email: values.email, pwd: values.pwd };
     
     axios.post(url, payload)
       .then(res => {
         setSuccess(res.data.message);
         setError('');
+
+        if (isLogin) {
+          setTimeout(() => navigate('/codeo'), 1000); 
+        } else {
+          setTimeout(() => setIsLogin(true), 1000);
+        }
       })
       .catch(err => {
         setError(err.response ? err.response.data.message : 'Erreur lors de la soumission du formulaire');
@@ -71,7 +87,7 @@ function Login() {
   return (
     <div style={backgroundImageStyle} className='connecter'>
       <div className='soratra'>
-        <h2 className='animé'>{text}</h2>
+        <h2 className='animé' style={{ whiteSpace: 'pre-line' }}>{text}</h2>
       </div>
       <div className='ka'>
         <div className='b'>
@@ -86,7 +102,16 @@ function Login() {
             </div>
             <div className='alahatra'>
               <FontAwesomeIcon icon={faLock} className='icone' />
-              <input type="password" placeholder="Mot de passe" onChange={e => setValues({ ...values, pwd: e.target.value })} />
+              <input type={p ? 'text ' : 'password'} placeholder="Mot de passe" onChange={e => setValues({ ...values, pwd: e.target.value })} />
+            </div>
+            <div className='miseho'>
+              <input
+                type="checkbox"
+                className='afficher'
+                checked={p}
+                onChange={c}
+              />
+              <label> Afficher</label>
             </div>
             <button className='a' type='submit'>Se connecter</button>
             {error && <p className='error'>{error}</p>}
@@ -104,7 +129,16 @@ function Login() {
             </div>
             <div className='alahatra'>
               <FontAwesomeIcon icon={faLock} className='icone' />
-              <input type="password" placeholder="Mot de passe" onChange={e => setValues({ ...values, pwd: e.target.value })} />
+              <input type={p ? 'text ' : 'password'} placeholder="Mot de passe" onChange={e => setValues({ ...values, pwd: e.target.value })} />
+            </div>
+            <div className='miseho'>
+              <input
+                type="checkbox"
+                className='afficher'
+                checked={p}
+                onChange={c}
+              />
+              <label> Afficher</label>
             </div>
             <button className='a' type='submit'>S'inscrire</button>
             {error && <p className='error'>{error}</p>}

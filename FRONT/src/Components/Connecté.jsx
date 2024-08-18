@@ -26,7 +26,7 @@ function Connecté() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isEditing) {
-      axios.put(`http://localhost:8083/base/${editId}`, values)
+      axios.put(`http://localhost:8084/base/${editId}`, values)
         .then(response => {
           console.log('Data updated successfully:', response.data);
           setValues({
@@ -45,7 +45,7 @@ function Connecté() {
           console.error('There was an error updating the data!', error);
         });
     } else {
-      axios.post('http://localhost:8083/base', values)
+      axios.post('http://localhost:8084/base', values)
         .then(response => {
           console.log('Data submitted successfully:', response.data);
           setValues({
@@ -65,7 +65,7 @@ function Connecté() {
   };
 
   const fetchData = () => {
-    axios.get('http://localhost:8083/base')
+    axios.get('http://localhost:8084/base')
       .then(response => {
         setData(response.data);
       })
@@ -92,7 +92,7 @@ function Connecté() {
   };
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:8083/base/${id}`)
+    axios.delete(`http://localhost:8084/base/${id}`)
       .then(response => {
         console.log('Data deleted successfully:', response.data);
         fetchData();

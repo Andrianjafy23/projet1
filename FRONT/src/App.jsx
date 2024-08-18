@@ -9,13 +9,20 @@ import Connecté from './Components/Connecté';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedTopic, setSelectedTopic] = useState({ category: '', topic: '' });
+
+  // Fonction pour mettre à jour la sélection de sujet à partir de Right
+  const handleSelectTopic = (category, topic) => {
+    setSelectedTopic({ category, topic });
+  };
+
   return (
     <div className='vatany'>
       <Logika searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <div className='tab'>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/codeo" element={<Vatan searchQuery={searchQuery} />} />
+          <Route path="/codeo" element={<CodePage searchQuery={searchQuery} selectedTopic={selectedTopic} onSelectTopic={handleSelectTopic} />} />
           <Route path="/connecter" element={<Connecté />} />
         </Routes>
       </div>
@@ -23,10 +30,11 @@ function App() {
   );
 }
 
-const Vatan = ({ searchQuery }) => (
+// Page combinant Right et Vatany
+const CodePage = ({ searchQuery, selectedTopic, onSelectTopic }) => (
   <div className='va'>
-    <Right /> 
-    <Vatany searchQuery={searchQuery} />
+    <Right onSelect={onSelectTopic} />
+    <Vatany searchQuery={searchQuery} selectedTopic={selectedTopic} />
   </div>
 );
 

@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './style.css';
-import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHtml5, faCss3Alt, faJs } from '@fortawesome/free-brands-svg-icons';
 
-library.add(faHtml5, faCss3Alt, faJs);
-
-function Vatany({ searchQuery }) {
+function Vatany({ searchQuery, selectedTopic }) {
   const [activeEditor, setActiveEditor] = useState('html');
   const [codeData, setCodeData] = useState([]);
 
@@ -17,7 +14,7 @@ function Vatany({ searchQuery }) {
 
   const fetchCodeData = async () => {
     try {
-      const response = await axios.get('http://localhost:8083/base');
+      const response = await axios.get('http://localhost:8084/base');
       setCodeData(response.data);
     } catch (error) {
       console.error('error!', error);
@@ -33,6 +30,10 @@ function Vatany({ searchQuery }) {
     const updatedCodeData = [...codeData];
     updatedCodeData[index][name] = value;
     setCodeData(updatedCodeData);
+  };
+
+  const generateLineNumbers = (code) => {
+    return code.split('\n').map((_, index) => index + 1).join('\n');
   };
 
   const filteredData = codeData.filter(item => 
@@ -72,33 +73,47 @@ function Vatany({ searchQuery }) {
               </div>
               <div className="editeur">
                 {activeEditor === 'html' && (
-                  <textarea
-                    name="html"
-                    value={item.html}
-                    onChange={(e) => handleCodeChange(e, index)}
-                    placeholder="HTML code"
-                  />
+                  <div className="editor-container">
+                    <div className="line-numbers">
+                      {generateLineNumbers(item.html)}
+                    </div>
+                    <textarea
+                      name="html"
+                      value={item.html}
+                      onChange={(e) => handleCodeChange(e, index)}
+                      placeholder="HTML code"
+                    />
+                  </div>
                 )}
                 {activeEditor === 'css' && (
-                  <textarea
-                    name="css"
-                    value={item.css}
-                    onChange={(e) => handleCodeChange(e, index)}
-                    placeholder="CSS code"
-                  />
+                  <div className="editor-container">
+                    <div className="line-numbers">
+                      {generateLineNumbers(item.css)}
+                    </div>
+                    <textarea
+                      name="css"
+                      value={item.css}
+                      onChange={(e) => handleCodeChange(e, index)}
+                      placeholder="CSS code"
+                    />
+                  </div>
                 )}
                 {activeEditor === 'js' && (
-                  <textarea
-                    name="js"
-                    value={item.js}
-                    onChange={(e) => handleCodeChange(e, index)}
-                    placeholder="JavaScript code"
-                  />
+                  <div className="editor-container">
+                    <div className="line-numbers">
+                      {generateLineNumbers(item.js)}
+                    </div>
+                    <textarea
+                      name="js"
+                      value={item.js}
+                      onChange={(e) => handleCodeChange(e, index)}
+                      placeholder="JavaScript code"
+                    />
+                  </div>
                 )}
               </div>
-              <h2>Resultat:</h2>
+              <h2>Résultat:</h2>
               <iframe
-                key={index}
                 srcDoc={`
                   <html>
                     <body>${item.html}</body>

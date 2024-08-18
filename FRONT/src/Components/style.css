@@ -1,3 +1,5 @@
+
+
 *{
   margin: 0;
   padding: 0;
@@ -186,7 +188,7 @@ li{
   align-items: center;
   font-family: Arial, sans-serif;
   margin-left: 20%;
-  padding: 5px;
+  padding: 50px;
   overflow-x: auto;
 }
 .pub{
@@ -338,7 +340,7 @@ iframe {
   height: 100vh;
   background-color: whitesmoke;
 }
-.izy{
+.izy {
   background-color: whitesmoke;
   height: 100vh;
   display: flex;
@@ -347,83 +349,130 @@ iframe {
   margin-top: 57px;
   margin-left: 2px;
 }
+
 .izy .text {
   display: flex;
   flex-direction: row;
   gap: 1%;
 }
-.izy .text #aza{
- flex-direction: column;
+
+.izy .text #aza {
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 }
-.izy .text  #tete{
+
+.izy .text #tete {
   width: 100%;
   height: 258px;
   background-color: #545c61;
 }
-.izy .text #aza input{
+
+.izy .text #aza input {
   width: 100%;
   height: 40px;
   font-size: 30px;
+  padding: 5px;
 }
-.izy .text #expication{
- width: 70%;
- background-color: wheat;
- font-size: xx-large;
- color: #000;
+
+.izy .text #expication {
+  width: 70%;
+  background-color: wheat;
+  font-size: xx-large;
+  color: #000;
+  padding: 10px;
 }
-.izy .codeo{
+
+.izy .codeo {
   display: flex;
   flex-direction: row;
   gap: 50px;
   justify-content: center;
-
-
+  padding: 10px 0;
 }
-.izy .codeo textarea{
+
+.izy .codeo textarea {
   width: 30%;
+  height: 150px;
   background-color: #003645;
   color: whitesmoke;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
 }
-.aj{
+
+.aj {
   width: 10%;
   height: 50px;
   background-color: #003748;
   border-radius: 10px;
   font-size: 25px;
-
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
-.hi{
+
+.aj:hover {
+  background-color: #004c59;
+}
+
+.hi {
   position: fixed;
   top: 60px;
   height: calc(100% - 60px);
-  overflow-y:auto;
+  overflow-y: auto;
   width: 20%;
   z-index: 999;
+  background-color: whitesmoke;
+  padding: 10px;
 }
-.x{
+
+.x {
   width: 100%;
 }
-.data-list{
+
+.data-list {
   border: 2px solid rgb(29, 20, 20);
   background-color: whitesmoke;
   display: flex;
   flex-direction: column;
-
+  padding: 20px;
 }
-.données{
+
+.données {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   border: 1px solid blueviolet;
+  padding: 10px;
   margin-bottom: 15px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
 }
-.style{
+
+.style {
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   gap: 20px;
   justify-content: center;
+  margin-top: 10px;
 }
+
+.btt {
+  padding: 10px 15px;
+  background-color: #003748;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btt:hover {
+  background-color: #004c59;
+}
+
 thead{
   background-color: rgb(228 240 245);
 }
@@ -433,13 +482,15 @@ thead{
   padding: 8px 10px;
 }
 .soratra{
-  width: 50%;
+  width: 45%;
   position: fixed;
 }
 
 .animé {
-  font-size: 24px;
-  white-space: nowrap;
+  font-size: 27px;
+  color: #00b7ff;
+  padding-left: 28px;
+  box-shadow: 10px 5px 5px  solid  rgb(128, 108, 108);
   
 }
 h3{
@@ -457,4 +508,48 @@ h3{
   font-size: 20px;
   border-radius: 5px;
   margin-bottom: 10px;
+}
+
+
+.miseho {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding: 10px;
+}
+
+.afficher {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.miseho label {
+  font-size: 18px;
+  color: #e74949;
+  cursor: pointer;
+
+}
+.editor-container {
+  display: flex;
+}
+
+.line-numbers {
+  padding: 10px;
+  background: #d2d0cf;
+  border-right: 1px solid #ddd;
+  text-align: right;
+  font-family: monospace;
+  font-size: 12px;
+  color: #999;
+  white-space: pre;
+}
+
+textarea {
+  flex: 1;
+  border: 1px solid #ddd;
+  font-family: monospace;
+  padding: 10px;
+  margin-left: -1px; 
+  box-sizing: border-box;
 }
